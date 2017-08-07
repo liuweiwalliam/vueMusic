@@ -4,12 +4,14 @@
 import 'babel-polyfill'
 import fastclick from 'fastclick' //  解决移动端300毫秒点击延迟
 import Vue from 'vue'
+import router from './router/index'
 import App from './App'
- // import 'common/stylus/index.tpl'
 fastclick.attach(document.body)
-var VueApp = new Vue({
+/* eslint-disable no-new */
+new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router
 })
-console.log(VueApp)
+// console.log(VueApp, router)
 
