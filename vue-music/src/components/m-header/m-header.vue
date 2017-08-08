@@ -11,7 +11,8 @@ export default{}
 <style scoped lang="stylus" rel="stylesheet/stylus">
   @import "../../stylus/variable.styl"
   @import "../../stylus/mixin.styl"
-
+body
+  background: #000
   .m-header
     position: relative
     height: 44px

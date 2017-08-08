@@ -7,6 +7,7 @@ import Vue from 'vue'
 import router from './router/index'
 import App from './App'
 fastclick.attach(document.body)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

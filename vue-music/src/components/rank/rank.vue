@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
+  <div class="test">
+    rank
   </div>
 </template>
 <script type="text/ecmascript-6">
-export default{}
+  export default{}
 </script>
 
 <style scoped="" lang="stylus" rel="stylesheet/stylus">
   @import "../../stylus/variable.styl"
-  #app
-    color $color-theme
+  .test
+    color red
 </style>

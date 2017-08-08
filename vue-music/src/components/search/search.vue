@@ -1,14 +1,12 @@
 <template>
-  <div id="app">
-    search
-  </div>
+  <div class="test">search</div>
 </template>
 <script type="text/ecmascript-6">
-export default{}
+  export default{}
 </script>
 
 <style scoped="" lang="stylus" rel="stylesheet/stylus">
   @import "../../stylus/variable.styl"
-  #app
+  .test
     color red
 </style>

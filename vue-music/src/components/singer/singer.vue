@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
+  <div class="test">
     singer
   </div>
 </template>
 <script type="text/ecmascript-6">
-export default{}
+  export default{}
 </script>
 
 <style scoped="" lang="stylus" rel="stylesheet/stylus">
   @import "../../stylus/variable.styl"
-  #app
-    color green
+  .test
+    color red
 </style>
