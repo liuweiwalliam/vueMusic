@@ -6,6 +6,7 @@ import fastclick from 'fastclick' //  解决移动端300毫秒点击延迟
 import Vue from 'vue'
 import router from './router/index'
 import App from './App'
+import './stylus/index.styl'
 fastclick.attach(document.body)
 
 /* eslint-disable no-new */

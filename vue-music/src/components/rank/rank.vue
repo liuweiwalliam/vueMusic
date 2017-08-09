@@ -1,6 +1,6 @@
 <template>
-  <div class="test">
-    rank
+  <div class="ranktest222">
+    ranktest
   </div>
 </template>
 <script type="text/ecmascript-6">

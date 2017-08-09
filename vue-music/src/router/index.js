@@ -15,8 +15,8 @@ export default new Router({
   // mode: 'history',
   base: rootDir, //  这个很重要
   routes: [{
-    path: './',
-    redirect: '/singer' // 指定默认访问的组件
+    path: '/',
+    redirect: '/recommend' // 指定默认访问的组件
   }, {
     path: './recommend',
     component: Recommend
