@@ -17,11 +17,13 @@ module.exports = {
 
   },
   resolve: {
-    extention: ['.js', ',vue', '.json'],
+    extentions: ['.js', ',vue', '.json'],
     alias: {
       'src': resolve('src'),
       'common': resolve('src/common'),
-      'components': resolve('src/components')
+      'components': resolve('src/components'),
+      'api': resolve('src/api'),
+      'base': resolve('src/base')
     }
   }
 
