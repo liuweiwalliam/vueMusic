@@ -2,8 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -22,20 +21,35 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'src': resolve('src') //,
+      // 'common': resolve('src/common'),
+      // 'components': resolve('src/components'),
+      // 'api': resolve('src/api'),
+      // 'base': resolve('src/base')
     }
   },
+  // resolve: {
+  //   extensions: ['.js', '.vue', '.json'],
+  //   alias: {
+  //     'src': resolve('src'),
+  //     'common': resolve('src/common'),
+  //     'components': resolve('src/components'),
+  //     'api': resolve('src/api'),
+  //     'base': resolve('src/base')
+  //   }
+  // },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -68,7 +82,7 @@ module.exports = {
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
+        },
       }
     ]
   }

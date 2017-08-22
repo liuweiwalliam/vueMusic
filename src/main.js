@@ -8,7 +8,7 @@ import router from './router/index' // index.js中导出的router的实例
 import App from './App'
 import './stylus/index.styl'
 fastclick.attach(document.body)
-console.log(router)
+// console.log(router)
 
 /* eslint-disable no-new */
 new Vue({

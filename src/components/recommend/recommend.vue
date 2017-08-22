@@ -1,8 +1,8 @@
 <template>
   <div class="test">
-    <scroll ref="scroll" class="recommend-content" :data="discList">
+    <!--<scroll ref="scroll" class="recommend-content" >-->
       <div>
-        <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
+        <div class="slider-wrapper" ref="sliderWrapper">
           <!--<slider>-->
           <!--<div v-for="item in recommends">-->
           <!--<a :href="item.linkUrl">-->
@@ -27,9 +27,9 @@
         </div>
       </div>
       <div class="loading-container">
-        <loading></loading>
+        <!--<loading></loading>-->
       </div>
-    </scroll>
+    <!--</scroll>-->
     <router-view></router-view>
   </div>
 </template>
@@ -46,7 +46,7 @@
         (getRecommend()).then((res) => {
           if (res.code === ERR_OK) {
             let data = res.data;
-
+            console.log(data);
           } else {
 
           }
