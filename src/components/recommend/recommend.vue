@@ -3,13 +3,14 @@
     <!--<scroll ref="scroll" class="recommend-content" >-->
       <div>
         <div class="slider-wrapper" ref="sliderWrapper">
-          <!--<slider>-->
-          <!--<div v-for="item in recommends">-->
-          <!--<a :href="item.linkUrl">-->
-          <!--<img class="needsclick" @load="loadImage" :src="item.picUrl">-->
-          <!--</a>-->
-          <!--</div>-->
-          <!--</slider>-->
+          <slider>
+          <div v-for="item in recommends">
+          <a :href="item.linkUrl">
+          <img class="needsclick"  :src="item.picUrl">
+            <!--@load="loadImage"-->
+          </a>
+          </div>
+          </slider>
         </div>
         <div class="recommend-list">
           <h1 class="list-title">热门歌单推荐</h1>
@@ -36,10 +37,16 @@
 <script type="text/ecmascript-6">
   import { getRecommend } from '../../api/recommend'
   import { ERR_OK } from '../../api/config'
+  import Slider from '../../base/slider/slider'
 
   export default{
     created (){
       this._getRecommend()
+    },
+    data(){
+        return{
+          recommends:[]
+        }
     },
     methods: {
       _getRecommend(){
@@ -47,13 +54,15 @@
           if (res.code === ERR_OK) {
             let data = res.data;
             console.log(data);
+            this.recommends = data.slider;
           } else {
 
           }
 
         })
       }
-    }
+    },
+    components:{Slider}
   }
 </script>
 
