@@ -14,7 +14,6 @@ module.exports = {
     // path: config.build.assetsRoot,
     filename: '[name].js'// ,
     // publicPath
-
   }//,
   // resolve: {
   //   extensions: ['.js', '.vue', '.json'],
