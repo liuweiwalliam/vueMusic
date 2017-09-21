@@ -16,15 +16,15 @@
     props: {
       loop: {
         type: Boolean,
-        default: true,
+        default: true
       },
       autoPlay: {
         type: Boolean,
         default: true
       },
-      inteval: {
+      interval: {
         type: Number,
-        default: 400
+        default: 4000
       }
     },
     mounted (){
