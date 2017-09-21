@@ -2,30 +2,30 @@
   <div class="test">
     <!--<scroll ref="scroll" class="recommend-content" >-->
       <div>
-        <div class="slider-wrapper" ref="sliderWrapper">
+        <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
-          <div v-for="item in recommends">
-          <a :href="item.linkUrl">
-          <img class="needsclick"  :src="item.picUrl">
-            <!--@load="loadImage"-->
-          </a>
-          </div>
+            <div v-for="item in recommends">
+              <a :href="item.linkUrl">
+                <img class="needsclick"  :src="item.picUrl">
+                <!--@load="loadImage"-->
+              </a>
+            </div>
           </slider>
         </div>
-        <div class="recommend-list">
-          <h1 class="list-title">热门歌单推荐</h1>
-          <ul>
-            <li class="item">
-              <div class="icon">
-                <img width="60" height="60">
-              </div>
-              <div class="text">
-                <h2 class="name"></h2>
-                <p class="desc"></p>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <!--<div class="recommend-list">-->
+          <!--<h1 class="list-title">热门歌单推荐</h1>-->
+          <!--<ul>-->
+            <!--<li class="item">-->
+              <!--<div class="icon">-->
+                <!--<img width="60" height="60">-->
+              <!--</div>-->
+              <!--<div class="text">-->
+                <!--<h2 class="name"></h2>-->
+                <!--<p class="desc"></p>-->
+              <!--</div>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</div>-->
       </div>
       <div class="loading-container">
         <!--<loading></loading>-->
@@ -53,8 +53,9 @@
         (getRecommend()).then((res) => {
           if (res.code === ERR_OK) {
             let data = res.data;
-            console.log(data);
             this.recommends = data.slider;
+            console.log(this.recommends);
+
           } else {
 
           }
