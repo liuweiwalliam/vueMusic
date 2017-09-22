@@ -54,12 +54,10 @@
           if (res.code === ERR_OK) {
             let data = res.data;
             this.recommends = data.slider;
-            console.log(this.recommends);
-
+//            console.log(this.recommends);
           } else {
 
           }
-
         })
       }
     },
