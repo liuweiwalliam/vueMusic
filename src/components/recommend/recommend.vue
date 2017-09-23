@@ -1,5 +1,5 @@
 <template>
-  <div class="test">
+  <div class="recommend">
     <!--<scroll ref="scroll" class="recommend-content" >-->
       <div>
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
@@ -38,7 +38,6 @@
   import { getRecommend } from '../../api/recommend'
   import { ERR_OK } from '../../api/config'
   import Slider from '../../base/slider/slider'
-
   export default{
     created (){
       this._getRecommend()
@@ -72,9 +71,9 @@
     width: 100%
     top: 88px
     bottom: 0
-    .recommend-content
-      height: 100%
-      overflow: hidden
+    /*.recommend-content*/
+      /*height: 100%*/
+      /*overflow: hidden*/
       .slider-wrapper
         position: relative
         width: 100%

@@ -2,7 +2,6 @@
  * Created by walliam on 2017/9/20.
  */
 export function addClass(el, className) {
-  console.log(111);
   if (hasClass(el, className)) {
     return
   }

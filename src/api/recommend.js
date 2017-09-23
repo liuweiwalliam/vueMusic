@@ -10,3 +10,7 @@ export function getRecommend() {
   const data = Object.assign({}, commonParams);
   return jsonp(url, data, options)
 }
+
+export function getDiscList() {
+  const url = '';
+}

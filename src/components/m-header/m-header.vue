@@ -1,7 +1,7 @@
 <template>
   <div class="m-header">
     <div class="icon"></div>
-    <h1 class="text">music</h1>
+    <h1 class="text">Walliam music</h1>
   </div>
 </template>
 <script type="text/ecmascript-6">
