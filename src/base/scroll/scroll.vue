@@ -6,10 +6,10 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-  import BScroll from 'better_scroll';
+  import BScroll from 'better-scroll';
   export default{
     props: {
-      probtype: {
+      probType: {
         type: Number,
         default: 1
       },
@@ -29,9 +29,11 @@
     },
     methods: {
       _initScroll(){
-        if (!this.$refs.wrapper) {
-          return
-        }
+        console.log(this.$refs);
+        return
+//        if (!this.$refs.wrapper) {
+//          return
+//        }
         this.scroll = new BScroll({
           probeType: this.probeType,
           click: this.click
@@ -47,11 +49,37 @@
         this.scroll && this.scroll.refresh()
       }
     },
+    mounted(){
+      setTimeout(()=>{
+        this._initScroll();
+      },20)
+    },
+    methods:{
+      _initScroll(){
+        if(!this.$ref.wrapper){
+          return
+        }
+        this.scroll = new BScroll(this.$refs.wrapper,{
+          probeType:this.probeType,
+          click:this.click
+        })
+      },
+      enable(){
+        this.scroll.enable()
+      },
+      disable(){
+        this.scroll.disable()
+      },
+      refresh(){
+        this.scroll.refresh()
+      }
+    },
     watch: {
       data(){
-        setTimeout()
+        setTimeout(()=>{
+          this.refresh()
+        },20)
       }
     }
   }
-
 </script>
