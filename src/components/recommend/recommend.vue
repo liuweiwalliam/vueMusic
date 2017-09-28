@@ -27,9 +27,9 @@
         </ul>
       </div>
     </div>
-    <div class="loading-container">
-      <!--<loading></loading>-->
-    </div>
+    <!--<div class="loading-container">-->
+      <!--&lt;!&ndash;<loading></loading>&ndash;&gt;-->
+    <!--</div>-->
     </scroll>
     <router-view></router-view>
   </div>
@@ -66,7 +66,7 @@
         getDiscList().then((res) => {
           if (res.code === ERR_OK) {
             this.discList = res.data.list;
-//            console.log(this.discList.length);
+//            console.log(this.discList);
           }
         })
       }
@@ -82,9 +82,9 @@
     width: 100%
     top: 88px
     bottom: 0
-    /*.recommend-content*/
-    /*height: 100%*/
-    /*overflow: hidden*/
+    .recommend-content
+      height: 100%
+      overflow: hidden
     .slider-wrapper
       position: relative
       width: 100%

@@ -1,7 +1,6 @@
 <template>
   <div ref="wrapper">
     <slot>
-
     </slot>
   </div>
 </template>
@@ -27,36 +26,9 @@
         this._initScroll()
       }, 20)
     },
-    methods: {
-      _initScroll(){
-        console.log(this.$refs);
-        return
-//        if (!this.$refs.wrapper) {
-//          return
-//        }
-        this.scroll = new BScroll({
-          probeType: this.probeType,
-          click: this.click
-        })
-      },
-      enable(){
-        this.scroll && this.scroll.enable();
-      },
-      disable(){
-        this.scroll && this.scroll.disable();
-      },
-      refresh(){
-        this.scroll && this.scroll.refresh()
-      }
-    },
-    mounted(){
-      setTimeout(()=>{
-        this._initScroll();
-      },20)
-    },
     methods:{
       _initScroll(){
-        if(!this.$ref.wrapper){
+        if(!this.$refs.wrapper){
           return
         }
         this.scroll = new BScroll(this.$refs.wrapper,{
@@ -76,6 +48,7 @@
     },
     watch: {
       data(){
+//          console.log(this.data);
         setTimeout(()=>{
           this.refresh()
         },20)
