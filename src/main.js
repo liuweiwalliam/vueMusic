@@ -7,9 +7,12 @@ import Vue from 'vue'
 import router from './router/index' // index.js中导出的router的实例
 import App from './App'
 import './stylus/index.styl'
+import VueLazyload from 'vue-lazyload'
 fastclick.attach(document.body)
-// console.log(router)
 
+Vue.use(VueLazyload,{
+  Loading:require('./image/default.png')
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
