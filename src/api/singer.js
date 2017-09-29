@@ -7,7 +7,7 @@ import {commonParams, options} from './config'
 
 export function getSingerList() {
   const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
-  const data = Object.assign(commonParams, {
+  const data = Object.assign({},commonParams, {
     channel: 'singer',
     page: 'list',
     key: 'all_all_all',
@@ -17,8 +17,8 @@ export function getSingerList() {
     needNewCode: 0,
     platform: 'yqq',
     g_tk: 1928093487,
-    format: 'jsonp',
-    jsonpCallback:'jp1'
+    format: 'json'
   });
+  // console.log(data);
   return jsonp(url, data, options)
 }

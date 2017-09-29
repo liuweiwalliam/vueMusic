@@ -80,7 +80,7 @@
           return
         }
         this.$refs.scroll.refresh();
-        console.log(1);
+//        console.log(1);
         this.isImgLoad = true
       }
     },
