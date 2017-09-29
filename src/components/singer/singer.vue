@@ -1,8 +1,8 @@
-<tempalte>
+<template>
   <div class="singer">
 
   </div>
-</tempalte>
+</template>
 
 <script type="text/ecmascript-6">
   import { getSingerList } from '../../api/singer'
@@ -29,6 +29,7 @@
   }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  @import "../../stylus/variable.styl"
   .singer
     position: fixed
     top: 88px

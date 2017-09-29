@@ -2,10 +2,10 @@
  * Created by walliam on 2017/9/28.
  */
 import jsonp from '../common/js/jsonp'
-import { commonParams, options } from './config'
+import {commonParams, options} from './config'
 // import axios from 'axios'
 
-export function getSingerList () {
+export function getSingerList() {
   const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
   const data = Object.assign(commonParams, {
     channel: 'singer',
@@ -16,7 +16,9 @@ export function getSingerList () {
     hostUin: 0,
     needNewCode: 0,
     platform: 'yqq',
-    g_tk:1664029744
+    g_tk: 1928093487,
+    format: 'jsonp',
+    jsonpCallback:'jp1'
   });
-  return jsonp(url,data,options)
+  return jsonp(url, data, options)
 }
