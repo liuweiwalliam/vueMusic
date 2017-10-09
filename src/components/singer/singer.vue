@@ -34,7 +34,7 @@
           items:[]
         }
       }
-      //ci chu keyi tianjai jiaoyan
+      //此处可以添加校验
       list.forEach(function (item , index) {
         if(index <= 9){
           map.hot.item.push({
