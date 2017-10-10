@@ -34,9 +34,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Scroll from 'base/scroll/scroll'
-  import Loading from 'base/loading/loading'
-  import {getData} from 'common/js/dom'
+  import Scroll from '../../base/scroll/scroll'
+  import Loading from '../../base/loading/loading'
+  import {getData} from '../../common/js/dom'
 
   const TITLE_HEIGHT = 30
   const ANCHOR_HEIGHT = 18
@@ -168,7 +168,7 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
+  @import "../../stylus/variable.styl"
 
   .listview
     position: relative

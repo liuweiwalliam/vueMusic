@@ -11,7 +11,8 @@ import VueLazyload from 'vue-lazyload'
 fastclick.attach(document.body)
 
 Vue.use(VueLazyload,{
-  Loading:require('./image/default.png')
+  loading: require('./image/default.png'),
+
 })
 /* eslint-disable no-new */
 new Vue({
