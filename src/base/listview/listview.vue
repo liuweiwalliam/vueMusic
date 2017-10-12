@@ -79,17 +79,18 @@
         this.$emit('select', item)
       },
       onShortcutTouchStart(e) {
-        let anchorIndex = getData(e.target, 'index')
-        let firstTouch = e.touches[0]
-        this.touch.y1 = firstTouch.pageY
-        this.touch.anchorIndex = anchorIndex
-
-        this._scrollTo(anchorIndex)
+        let anchorIndex = getData(e.target, 'index');
+        let firstTouch = e.touches[0];
+        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex],0);
+//        this.touch.y1 = firstTouch.pageY
+//        this.touch.anchorIndex = anchorIndex
+//
+//        this._scrollTo(anchorIndex)
       },
       onShortcutTouchMove(e) {
         let firstTouch = e.touches[0]
         this.touch.y2 = firstTouch.pageY
-        let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0
+        let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0;//滚动的变量
         let anchorIndex = parseInt(this.touch.anchorIndex) + delta
 
         this._scrollTo(anchorIndex)
