@@ -36,7 +36,7 @@
 <script type="text/ecmascript-6">
   import Scroll from '../../base/scroll/scroll'
   import Loading from '../../base/loading/loading'
-  import {getData} from '../../common/js/dom'
+  import { getData } from '../../common/js/dom'
 
   const TITLE_HEIGHT = 30
   const ANCHOR_HEIGHT = 18
@@ -81,18 +81,19 @@
       onShortcutTouchStart(e) {
         let anchorIndex = getData(e.target, 'index');
         let firstTouch = e.touches[0];
-        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex],0);
-//        this.touch.y1 = firstTouch.pageY
-//        this.touch.anchorIndex = anchorIndex
-//
-//        this._scrollTo(anchorIndex)
+        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex], 0);
+        this.touch.y1 = firstTouch.pageY //触摸开始的坐标
+        this.touch.anchorIndex = anchorIndex
+
+        this._scrollTo(anchorIndex)
       },
       onShortcutTouchMove(e) {
+        console.log(e.touches);
         let firstTouch = e.touches[0]
-        this.touch.y2 = firstTouch.pageY
+        this.touch.y2 = firstTouch.pageY //当前实时触摸的坐标
         let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0;//滚动的变量
+//        console.log(anchorIndex);
         let anchorIndex = parseInt(this.touch.anchorIndex) + delta
-
         this._scrollTo(anchorIndex)
       },
       refresh() {

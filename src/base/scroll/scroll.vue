@@ -19,6 +19,10 @@
       data: {
         type: Array,
         default: null
+      },
+      listenScroll:{
+        type:Boolean,
+        default:false
       }
     },
     mounted() {
@@ -30,6 +34,9 @@
       _initScroll(){
         if(!this.$refs.wrapper){
           return
+        }
+        if(this.listenScroll){
+this.scroll.on('scroll',(pos))
         }
         this.scroll = new BScroll(this.$refs.wrapper,{
           probeType:this.probeType,
