@@ -20,9 +20,9 @@
         type: Array,
         default: null
       },
-      listenScroll:{
-        type:Boolean,
-        default:false
+      listenScroll: {
+        type: Boolean,
+        default: false//scroll 是否监听滚动事件
       }
     },
     mounted() {
@@ -30,17 +30,20 @@
         this._initScroll()
       }, 20)
     },
-    methods:{
+    methods: {
       _initScroll(){
-        if(!this.$refs.wrapper){
+        if (!this.$refs.wrapper) {
           return
         }
-        if(this.listenScroll){
-this.scroll.on('scroll',(pos))
+        if (this.listenScroll) {
+          this.scroll.on('scroll', (pos) => {
+    let me = this;
+    me.$emit('scroll',pos)
+          })
         }
-        this.scroll = new BScroll(this.$refs.wrapper,{
-          probeType:this.probeType,
-          click:this.click
+        this.scroll = new BScroll(this.$refs.wrapper, {
+          probeType: this.probeType,
+          click: this.click
         })
       },
       enable(){
@@ -53,18 +56,18 @@ this.scroll.on('scroll',(pos))
         this.scroll.refresh()
       },
       scrollTo(){
-        this.scroll && this.scroll.scrollTo.apply(this.scroll,arguments)
+        this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
       scrollToElement(){
-          this.scroll && this.scroll.scrollToElement.apply(this.scroll,arguments)
+        this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
       }
     },
     watch: {
       data(){
 //          console.log(this.data);
-        setTimeout(()=>{
+        setTimeout(() => {
           this.refresh()
-        },20)
+        }, 20)
       }
     }
   }

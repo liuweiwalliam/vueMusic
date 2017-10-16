@@ -40,7 +40,7 @@
 
   const TITLE_HEIGHT = 30
   const ANCHOR_HEIGHT = 18
-
+//5-2 16:50
   export default {
     props: {
       data: {
@@ -64,13 +64,13 @@
     data() {
       return {
         scrollY: -1,
-        currentIndex: 0,
+        currentIndex: 0,//高亮的列表索引
         diff: -1
       }
     },
     created() {
-      this.probeType = 3
-      this.listenScroll = true
+      this.probeType = 3;//3可以监听swap
+      this.listenScroll = true;
       this.touch = {}
       this.listHeight = []
     },
@@ -103,13 +103,13 @@
         this.scrollY = pos.y
       },
       _calculateHeight() {
-        this.listHeight = []
-        const list = this.$refs.listGroup
-        let height = 0
-        this.listHeight.push(height)
+        this.listHeight = [];
+        const list = this.$refs.listGroup;
+        let height = 0;
+        this.listHeight.push(height);
         for (let i = 0; i < list.length; i++) {
-          let item = list[i]
-          height += item.clientHeight
+          let item = list[i];
+          height += item.clientHeight;
           this.listHeight.push(height)
         }
       },
@@ -127,16 +127,17 @@
       }
     },
     watch: {
-      data() {
+      data() {//监听,data变化时调用某方法
         setTimeout(() => {
           this._calculateHeight()
         }, 20)
       },
-      scrollY(newY) {
-        const listHeight = this.listHeight
+      scrollY(newY) { //监听data中的scrollY
+//        console.log(newY);return;
+        const listHeight = this.listHeight;
         // 当滚动到顶部，newY>0
         if (newY > 0) {
-          this.currentIndex = 0
+          this.currentIndex = 0;
           return
         }
         // 在中间部分滚动
