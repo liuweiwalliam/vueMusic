@@ -28,7 +28,7 @@
           if (res.code === ERR_OK) {
             this.singers = this._normalizeSinger(res.data.list);
 //            console.log(this,_normalizeSinger);
-            console.log(this._normalizeSinger(res.data.list));
+//            console.log(this._normalizeSinger(res.data.list));
           }
         })
       },

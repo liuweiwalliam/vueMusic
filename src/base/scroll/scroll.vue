@@ -35,16 +35,17 @@
         if (!this.$refs.wrapper) {
           return
         }
-        if (this.listenScroll) {
-          this.scroll.on('scroll', (pos) => {
-    let me = this;
-    me.$emit('scroll',pos)
-          })
-        }
         this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: this.click
-        })
+        });
+        if (this.listenScroll) {
+          let me = this;
+          this.scroll.on('scroll', (pos) => {
+            console.log('pos:'+ pos);
+            me.$emit('scroll', pos);
+          })
+        }
       },
       enable(){
         this.scroll.enable()

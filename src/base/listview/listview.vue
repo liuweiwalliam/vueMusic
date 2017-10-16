@@ -78,10 +78,10 @@
       selectItem(item) {
         this.$emit('select', item)
       },
-      onShortcutTouchStart(e) {
+      onShortcutTouchStart(e) { //此处为何两个scroll函数
         let anchorIndex = getData(e.target, 'index');
         let firstTouch = e.touches[0];
-        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex], 0);
+//        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex], 0);
         this.touch.y1 = firstTouch.pageY //触摸开始的坐标
         this.touch.anchorIndex = anchorIndex
 
@@ -110,7 +110,7 @@
         for (let i = 0; i < list.length; i++) {
           let item = list[i];
           height += item.clientHeight;
-          this.listHeight.push(height)
+          this.listHeight.push(height);
         }
       },
       _scrollTo(index) {
@@ -133,7 +133,7 @@
         }, 20)
       },
       scrollY(newY) { //监听data中的scrollY
-//        console.log(newY);return;
+        console.log(newY)
         const listHeight = this.listHeight;
         // 当滚动到顶部，newY>0
         if (newY > 0) {
@@ -144,14 +144,15 @@
         for (let i = 0; i < listHeight.length - 1; i++) {
           let height1 = listHeight[i]
           let height2 = listHeight[i + 1]
-          if (-newY >= height1 && -newY < height2) {
-            this.currentIndex = i
-            this.diff = height2 + newY
-            return
-          }
+//          if (-newY >= height1 && -newY < height2) {
+//            this.currentIndex = i
+//            this.diff = height2 + newY
+//            return
+//          }
         }
         // 当滚动到底部，且-newY大于最后一个元素的上限
-        this.currentIndex = listHeight.length - 2
+//        this.currentIndex = listHeight.length - 2
+        this.currentIndex = 0
       },
       diff(newVal) {
         let fixedTop = (newVal > 0 && newVal < TITLE_HEIGHT) ? newVal - TITLE_HEIGHT : 0
