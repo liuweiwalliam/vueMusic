@@ -38,8 +38,8 @@
   import Loading from '../../base/loading/loading'
   import { getData } from '../../common/js/dom'
 
-  const TITLE_HEIGHT = 30
-  const ANCHOR_HEIGHT = 18
+  const TITLE_HEIGHT = 30;
+  const ANCHOR_HEIGHT = 18;
 //5-2 16:50
   export default {
     props: {

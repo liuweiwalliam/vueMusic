@@ -42,7 +42,7 @@
         if (this.listenScroll) {
           let me = this;
           this.scroll.on('scroll', (pos) => {
-            console.log('pos:'+ pos);
+//            console.log('pos:'+ pos);
             me.$emit('scroll', pos);
           })
         }
