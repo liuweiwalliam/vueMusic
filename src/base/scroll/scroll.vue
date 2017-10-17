@@ -39,12 +39,19 @@
           probeType: this.probeType,
           click: this.click
         });
+//        console.log(this.scroll);
         if (this.listenScroll) {
           let me = this;
-          this.scroll.on('scroll', (pos) => {
-            console.log('pos:'+ pos);
-            me.$emit('scroll', pos);
-          })
+          (this.scroll).on('scroll', (pos) => {
+            console.log(11111);
+            console.log(pos);
+//            console.log('pos:'+ pos);
+//            me.$emit('scroll', pos);//调用的父组件的方法
+          });
+//          (this.scroll).on('scrollEnd', function (pos) {
+//            console.log(pos);
+//          });
+
         }
       },
       enable(){
