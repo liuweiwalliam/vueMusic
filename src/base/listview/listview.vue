@@ -71,8 +71,8 @@
     created() {
       this.probeType = 3;//3可以监听swap
       this.listenScroll = true;
-      this.touch = {}
-      this.listHeight = []
+      this.touch = {};
+      this.listHeight = [];
     },
     methods: {
       selectItem(item) {
@@ -81,26 +81,25 @@
       onShortcutTouchStart(e) { //此处为何两个scroll函数
         let anchorIndex = getData(e.target, 'index');
         let firstTouch = e.touches[0];
-//        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex], 0);
-        this.touch.y1 = firstTouch.pageY //触摸开始的坐标
-        this.touch.anchorIndex = anchorIndex
-
-        this._scrollTo(anchorIndex)
+//        this.$refs.listview.scrollToElement(this.$refs.listGroup[anchorIndex], 0); //scroll滚动到指定位置
+        this.touch.y1 = firstTouch.pageY; //触摸开始的坐标
+        this.touch.anchorIndex = anchorIndex; //触摸开始的索引
+        this._scrollTo(anchorIndex); //scroll滚动到指定位置
       },
       onShortcutTouchMove(e) {
-        console.log(e.touches);
-        let firstTouch = e.touches[0]
-        this.touch.y2 = firstTouch.pageY //当前实时触摸的坐标
-        let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0;//滚动的变量
+//        console.log(e.touches);
+        let firstTouch = e.touches[0]; //move时当前的触摸事件
+        this.touch.y2 = firstTouch.pageY; //当前实时触摸的坐标
+        let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0;//滚动的变量的个数（左侧小菜单）
 //        console.log(anchorIndex);
-        let anchorIndex = parseInt(this.touch.anchorIndex) + delta
-        this._scrollTo(anchorIndex)
+        let anchorIndex = parseInt(this.touch.anchorIndex) + delta;
+        this._scrollTo(anchorIndex);
       },
       refresh() {
-        this.$refs.listview.refresh()
+        this.$refs.listview.refresh();
       },
       scroll(pos) {
-        this.scrollY = pos.y
+        this.scrollY = pos.y;
       },
       _calculateHeight() {
         this.listHeight = [];
@@ -113,8 +112,8 @@
           this.listHeight.push(height);
         }
       },
-      _scrollTo(index) {
-        if (!index && index !== 0) {
+      _scrollTo(index) { //list的索引
+        if (!index && index !== 0) {//不存在且不为0
           return
         }
         if (index < 0) {
@@ -142,8 +141,8 @@
         }
         // 在中间部分滚动
         for (let i = 0; i < listHeight.length - 1; i++) {
-          let height1 = listHeight[i]
-          let height2 = listHeight[i + 1]
+          let height1 = listHeight[i];
+          let height2 = listHeight[i + 1];
 //          if (-newY >= height1 && -newY < height2) {
 //            this.currentIndex = i
 //            this.diff = height2 + newY
@@ -168,7 +167,6 @@
       Loading
     }
   }
-
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">

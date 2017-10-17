@@ -11,7 +11,7 @@
   import { ERR_OK } from '../../api/config'
   import Singer from '../../common/js/singer'
   import ListView from '../../base/listview/listview.vue'
-  const HOT_NAME = 'remen';
+  const HOT_NAME = 'hot';
   const HOT_SINGER_LENGTH = 10;
   export default{
     data(){
