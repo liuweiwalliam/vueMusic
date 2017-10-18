@@ -8,7 +8,7 @@
   import BScroll from 'better-scroll';
   export default{
     props: {
-      probType: {
+      probeType: {
         type: Number,
         default: 1
       },
@@ -40,16 +40,11 @@
           click: this.click,
           scrollX:this.scrollX
         });
-//        console.log(this.scroll);
         if (this.listenScroll) {
           let me = this;
-          console.log(111);
           (this.scroll).on('scroll', (pos) => {
-            console.log(pos.x +'-' + posx.y)
+            me.$emit('scroll', pos)
           });
-//          (this.scroll).on('scrollEnd', function (pos) {
-//            console.log(pos);
-//          });
         }
       },
       enable(){

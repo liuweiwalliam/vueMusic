@@ -8,6 +8,7 @@ import Recommend from './../components/recommend/recommend.vue'
 import Singer from './../components/singer/singer.vue'
 import Rank from './../components/rank/rank.vue'
 import Search from './../components/search/search.vue'
+import SingerDetail from './../components/singer-detail/singer-detail.vue'
 
 // import Recommend from 'components/recommend/recommend'
 // import Singer from 'components/singer/singer'
@@ -26,7 +27,11 @@ const routes = [
     component: Recommend
   }, {
     path: '/singer',
-    component: Singer
+    component: Singer,
+    children:[{ //children属性为数组
+      path:':id' ,//干嘛的？
+      component:SingerDetail
+    }]
   }, {
     path: '/rank',
     component: Rank

@@ -5,8 +5,7 @@
           :probeType="probeType"
           :data="data"
           class="listview"
-          ref="listview"
-  @click="test">
+          ref="listview">
     <ul>
       <li v-for="group in data" class="list-group" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
@@ -78,7 +77,7 @@
     },
     methods: {
       selectItem(item) {
-        this.$emit('select', item)
+        this.$emit('select', item) //因为是基础组件，所以不再此处写业务逻辑，向外部派发即可。
       },
       onShortcutTouchStart(e) { //此处为何两个scroll函数
         let anchorIndex = getData(e.target, 'index');
@@ -101,11 +100,7 @@
         this.$refs.listview.refresh();
       },
       scroll(pos) {
-        console.log(1112);
         this.scrollY = pos.y;
-      },
-      test(){
-        console.log('click');
       },
       _calculateHeight() {
         this.listHeight = [];
@@ -138,8 +133,8 @@
         }, 20)
       },
       scrollY(newY) { //监听data中的scrollY
-        console.log(3333)
         const listHeight = this.listHeight;
+//        console.log(newY);
         // 当滚动到顶部，newY>0
         if (newY > 0) {
           this.currentIndex = 0;
@@ -151,7 +146,6 @@
           let height2 = listHeight[i + 1];
           if (!height2 ||(-newY >= height1 && -newY < height2)) {
             this.currentIndex = i
-            console.log('在中间滚动');
 //            this.diff = height2 + newY
             return
           }
