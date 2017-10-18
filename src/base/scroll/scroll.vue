@@ -37,14 +37,19 @@
         }
         this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
-          click: this.click
+          click: this.click,
+          scrollX:this.scrollX
         });
+//        console.log(this.scroll);
         if (this.listenScroll) {
           let me = this;
-          this.scroll.on('scroll', (pos) => {
-//            console.log('pos:'+ pos);
-            me.$emit('scroll', pos);
-          })
+          console.log(111);
+          (this.scroll).on('scroll', (pos) => {
+            console.log(pos.x +'-' + posx.y)
+          });
+//          (this.scroll).on('scrollEnd', function (pos) {
+//            console.log(pos);
+//          });
         }
       },
       enable(){

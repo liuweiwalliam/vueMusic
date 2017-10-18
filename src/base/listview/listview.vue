@@ -1,10 +1,12 @@
 <template>
+  <!--子组件emit scroll时候,调用父组件的scroll-->
   <scroll @scroll="scroll"
-          :listen-scroll="listenScroll"
-          :probe-type="probeType"
+          :listenScroll="listenScroll"
+          :probeType="probeType"
           :data="data"
           class="listview"
-          ref="listview">
+          ref="listview"
+  @click="test">
     <ul>
       <li v-for="group in data" class="list-group" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
@@ -99,7 +101,11 @@
         this.$refs.listview.refresh();
       },
       scroll(pos) {
+        console.log(1112);
         this.scrollY = pos.y;
+      },
+      test(){
+        console.log('click');
       },
       _calculateHeight() {
         this.listHeight = [];
@@ -132,7 +138,7 @@
         }, 20)
       },
       scrollY(newY) { //监听data中的scrollY
-        console.log(newY)
+        console.log(3333)
         const listHeight = this.listHeight;
         // 当滚动到顶部，newY>0
         if (newY > 0) {
@@ -143,14 +149,15 @@
         for (let i = 0; i < listHeight.length - 1; i++) {
           let height1 = listHeight[i];
           let height2 = listHeight[i + 1];
-//          if (-newY >= height1 && -newY < height2) {
-//            this.currentIndex = i
+          if (!height2 ||(-newY >= height1 && -newY < height2)) {
+            this.currentIndex = i
+            console.log('在中间滚动');
 //            this.diff = height2 + newY
-//            return
-//          }
+            return
+          }
         }
         // 当滚动到底部，且-newY大于最后一个元素的上限
-//        this.currentIndex = listHeight.length - 2
+        this.currentIndex = listHeight.length - 2
         this.currentIndex = 0
       },
       diff(newVal) {
