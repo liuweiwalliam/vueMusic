@@ -8,6 +8,7 @@ import router from './router/index' // index.js中导出的router的实例
 import App from './App'
 import './stylus/index.styl'
 import VueLazyload from 'vue-lazyload'
+import store from './store'
 fastclick.attach(document.body)
 
 Vue.use(VueLazyload,{
@@ -18,6 +19,7 @@ Vue.use(VueLazyload,{
 new Vue({
   el: '#app',
   render: h => h(App),
+  store,
   router
 })
 // console.log(VueApp, router)

@@ -6,4 +6,5 @@ const mutations = {
   [types.SET_SINGER](state, singer){ //干嘛的？
     state.singer = singer
   }
-}
+};
+export default mutations;
