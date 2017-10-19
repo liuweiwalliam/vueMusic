@@ -24,8 +24,3 @@ export default new Vuex.Store({  //此处的传的是一个对象么？
   plugins:debug?[createLogger()]:[]
 })
 
-var obj = {};
-var obj2 = {};
-var num = new Number();
-var a = {function (){},function () {}};
-var b = {num,obj}

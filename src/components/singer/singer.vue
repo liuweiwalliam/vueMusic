@@ -14,6 +14,7 @@
   import { ERR_OK } from '../../api/config'
   import Singer from '../../common/js/singer'
   import ListView from '../../base/listview/listview.vue'
+  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
   import {mapMutations} from 'vuex'
   const HOT_NAME = 'hot';
   const HOT_SINGER_LENGTH = 10;
@@ -28,10 +29,11 @@
     },
     methods: {
       selectSinger(singer){
+        this.setSinger(singer);//this.$store.commit('...')
+//        this.$store.commit('SET_SINGER',singer)
         this.$router.push({
           path: `/singer/${singer.id}`
         });
-        this.setSinger(singer);
       },
       _getSingerList(){
         getSingerList().then((res) => {
@@ -78,7 +80,7 @@
         return hot.concat(ret)
       },
       ...mapMutations({
-        setSinger:'SET_SINGER'
+        setSinger:'SET_SINGER' //对应的是mutationTypes对应的常量
       })
     },
     components: {ListView}
