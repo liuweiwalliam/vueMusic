@@ -7,36 +7,47 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { getSingerDetail } from '../../api/singer'
-  import { ERR_OK } from '../../api/config'
-//  import Singer from '../../common/js/singer'
-//  import ListView from '../../base/listview/listview.vue'
-//  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
-//  import {mapMutations} from 'vuex'
-//  const HOT_NAME = 'hot';
-//  const HOT_SINGER_LENGTH = 10;
-import {mapGetters} from 'vuex' //从map中取数据的语法糖
+  import {getSingerDetail} from '../../api/singer'
+  import {ERR_OK} from '../../api/config'
+  //  import Singer from '../../common/js/singer'
+  //  import ListView from '../../base/listview/listview.vue'
+  //  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
+  //  import {mapMutations} from 'vuex'
+  //  const HOT_NAME = 'hot';
+  //  const HOT_SINGER_LENGTH = 10;
+  import {mapGetters} from 'vuex' //从map中取数据的语法糖
   export default{
-  computed:{
-    ...mapGetters([
-      'singer'
-    ])
-  },
+    data(){
+      return {
+        songs: []
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'singer'
+      ])
+    },
     created(){
       this._getDetail();
     },
-    methods:{
+    methods: {
       _getDetail (){
         if (typeof this.singer == 'undefined') {
           this.$router.push('/singer')
           return
         }
-        getSingerDetail(this.singer.id).then((res)=>{
-          if(res.code === ERR_OK){
+        getSingerDetail(this.singer.id).then((res) => {
+          if (res.code === ERR_OK) {
             console.log(res);
-          }else{
+          } else {
 
           }
+        })
+      },
+      _normalizeSongs(list){
+        let ret = [];
+        list.forEach(function (item, index) {
+          let musicData = item;
         })
       }
     }
