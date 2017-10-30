@@ -14,7 +14,7 @@ export default class Song {
     this.url = url;
   }
 }
-export function creatSong(musicData) {
+export function createSong(musicData) {
   return new Song({
     id: musicData.songid,
     mid: musicData.songmid,
@@ -23,7 +23,7 @@ export function creatSong(musicData) {
     album: musicData.albumname,
     duration: musicData.interval,
     image:  `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
-    url: `https://thirdparty.gtimg.com/${musicData.songid}.m4a?fromtag=38`,
+    url: `http://ws.stream.qqmusic.qq.com/${musicData.songid}.m4a?fromtag=46`,
   })
 }
 
