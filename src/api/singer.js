@@ -36,7 +36,6 @@ export function getSingerDetail(singerId) {
     singermid:singerId,
     format: 'json'
   });
-  // console.log(data);
   return jsonp(url, data, options)
 }
 
