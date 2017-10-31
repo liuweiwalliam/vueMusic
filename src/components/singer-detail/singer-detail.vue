@@ -1,59 +1,69 @@
 <template>
   <transition name="slide">
-    <div class="singer-detail">
+    <music-list>
 
-    </div>
+    </music-list>
   </transition>
 </template>
 
 <script type="text/ecmascript-6">
-  import { getSingerDetail } from '../../api/singer'
-  import { ERR_OK } from '../../api/config'
-//  import Singer from '../../common/js/singer'
-//  import ListView from '../../base/listview/listview.vue'
-//  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
-//  import {mapMutations} from 'vuex'
-//  const HOT_NAME = 'hot';
-//  const HOT_SINGER_LENGTH = 10;
-import {mapGetters} from 'vuex' //从map中取数据的语法糖
+  import {getSingerDetail} from '../../api/singer'
+  import {ERR_OK} from '../../api/config'
+  import {createSong} from '../../common/js/song'
+  import {MusicList} from '../../components/music-list/music-list'
+  //  import Singer from '../../common/js/singer'
+  //  import ListView from '../../base/listview/listview.vue'
+  //  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
+  //  import {mapMutations} from 'vuex'
+  //  const HOT_NAME = 'hot';
+  //  const HOT_SINGER_LENGTH = 10;
+  import {mapGetters} from 'vuex' //从map中取数据的语法糖
   export default{
-  computed:{
-    ...mapGetters([
-      'singer'
-    ])
-  },
+    data(){
+      return {
+        songs: []
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'singer'
+      ])
+    },
     created(){
       this._getDetail();
     },
-    methods:{
+    methods: {
       _getDetail (){
         if (typeof this.singer == 'undefined') {
           this.$router.push('/singer')
           return
         }
-        getSingerDetail(this.singer.id).then((res)=>{
-          if(res.code === ERR_OK){
-            console.log(res);
-          }else{
+        getSingerDetail(this.singer.id).then((res) => {
+          if (res.code === ERR_OK) {
+            this.songs = this._normalizeSongs(res.data.list);
+//              console.log(res.data.list);
+            console.log(this.songs);
+          } else {
 
           }
         })
+      },
+      _normalizeSongs(list){
+        let ret = [];
+        list.forEach(function (item, index) {
+          let musicData = item.musicData;
+          if (musicData.songid && musicData.albumid) {
+            ret.push(createSong(musicData));
+          }
+        });
+        return ret
       }
-    }
+    },
+    components:{MusicList}
   }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
   @import "../../stylus/variable.styl"
-
-  .singer-detail
-    position: fixed
-    z-index: 100
-    top: 0
-    right: 0
-    bottom: 0
-    height: 100vh
-    width: 100vw
-    background: $color-background
 
   .slide-enter-active, .slide-leave-active
     transition: all 0.3s
