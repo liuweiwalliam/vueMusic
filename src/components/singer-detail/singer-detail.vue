@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <music-list>
+    <music-list :title="title" :songs="songs" :bg-image = "bgImage">
 
     </music-list>
   </transition>
@@ -10,7 +10,7 @@
   import {getSingerDetail} from '../../api/singer'
   import {ERR_OK} from '../../api/config'
   import {createSong} from '../../common/js/song'
-  import {MusicList} from '../../components/music-list/music-list'
+  import {MusicList} from '../../components/music-list/music-list.vue'
   //  import Singer from '../../common/js/singer'
   //  import ListView from '../../base/listview/listview.vue'
   //  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
@@ -27,14 +27,21 @@
     computed: {
       ...mapGetters([
         'singer'
-      ])
+      ]),
+      title(){
+        console.log(this.singer);
+//        return this.singer.name;
+      },
+      bgImage(){
+//        return this.singer.avatar;
+      }
     },
     created(){
       this._getDetail();
     },
     methods: {
       _getDetail (){
-        if (typeof this.singer == 'undefined') {
+        if (typeof this.singer == 'undefined') {//singer指向的是？
           this.$router.push('/singer')
           return
         }
@@ -59,7 +66,7 @@
         return ret
       }
     },
-    components:{MusicList}
+    components: {MusicList}
   }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
