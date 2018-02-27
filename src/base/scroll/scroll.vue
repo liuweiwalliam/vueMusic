@@ -1,6 +1,7 @@
 <template>
   <div ref="wrapper">
     <slot>
+      <!--将父组件中的内容插入插槽中-->
     </slot>
   </div>
 </template>

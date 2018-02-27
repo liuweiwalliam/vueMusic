@@ -1,8 +1,9 @@
 <template>
   <transition name="slide">
-    <music-list :title="title" :songs="songs" :bg-image = "bgImage">
-
-    </music-list>
+    <!--<music-list>-->
+      <!--:title="title" :songs="songs" :bg-image = "bgImage"-->
+    <!--</music-list>-->
+    <div style="z-index: 999;width:100vw;height:100vh">testkasdfkdsj</div>
   </transition>
 </template>
 
@@ -11,6 +12,7 @@
   import {ERR_OK} from '../../api/config'
   import {createSong} from '../../common/js/song'
   import {MusicList} from '../../components/music-list/music-list.vue'
+  console.log(MusicList);
   //  import Singer from '../../common/js/singer'
   //  import ListView from '../../base/listview/listview.vue'
   //  //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）

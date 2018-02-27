@@ -1,10 +1,8 @@
 <template>
   <div class="singer">
     <list-view :data="singers" @select='selectSinger'>
-
     </list-view>
-    <router-view>
-    </router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -14,9 +12,10 @@
   import Singer from '../../common/js/singer'
   import ListView from '../../base/listview/listview.vue'
   //使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
-  import {mapMutations} from 'vuex'
+  import {mapMutations} from 'vuex' 
   const HOT_NAME = 'hot';
   const HOT_SINGER_LENGTH = 10;
+  console.log(ListView);
   export default{
     data(){
       return {
